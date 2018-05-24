@@ -75,6 +75,11 @@ class UsersController < ApplicationController
     authorize! :show, @user
     @invoice_items = @user.invoice_items
   end
+  
+  def get_balance
+    authorize! :show, @user
+    @cur_balance = @user.balance
+  end
 
   def ledger
     authorize! :show, @user
